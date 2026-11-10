@@ -15,9 +15,12 @@ Q(next) = T ⊕ Q   (Q(next) = Q if T = 0, Q(next) = Q' if T = 1)
 <img width="625" height="50" alt="image" src="https://github.com/user-attachments/assets/65034a51-5642-46ac-940a-f7ee975cea9c" />
 
 ## Design / RTL Program
-// gedit dff_tff.v
+
 
  ```
+ ```
+// gedit dff_tff.v
+ 
 module dff (
     input  wire clk,   // clock
     input  wire rst,   // asynchronous active-high reset
@@ -47,16 +50,10 @@ module tff (
             Q <= Q;
     end
 endmodule
-
-```
 ## Testbench Program
 
-
-// gedit tb5.v
-
-
- module tb5;
- 
+// gedit tb5.v 
+module tb5;
     reg  clk, rst, D, T;
     wire Qd, Qt;
  
@@ -91,7 +88,8 @@ endmodule
         // ---- Apply asynchronous reset ----
         rst = 1; D = 0; T = 0;
         #7  rst = 0;
-         // ---- Apply test vectors on successive clock edges ----
+ 
+        // ---- Apply test vectors on successive clock edges ----
         @(negedge clk); D = 1; T = 1;
         @(negedge clk); D = 0; T = 1;
         @(negedge clk); D = 1; T = 0;
@@ -105,8 +103,7 @@ endmodule
  
         #20 $finish;
     end
-    endmodule
-
+endmodule
 ## Truth Table
 
 <img width="349" height="264" alt="image" src="https://github.com/user-attachments/assets/d05e6f9d-ff68-466e-9eb8-52e22fa1b961" />
@@ -166,6 +163,8 @@ The design was compiled and simulated using Synopsys VCS, and the functionality 
 
 ## Output
 <img width="595" height="369" alt="image" src="https://github.com/user-attachments/assets/38290e4d-a813-4e0c-b891-68044c90623b" />
+<img width="1920" height="1080" alt="Screenshot 2026-11-10 125234" src="https://github.com/user-attachments/assets/ace55c17-ceb6-44dc-964b-77e25853cf18" />
+
 
 ## Viva-Voce Questions
 
